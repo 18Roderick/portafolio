@@ -3,30 +3,30 @@ import type { Project } from "@/lib/types/project";
 export const projects: Project[] = [
   {
     id: "1",
-    title: "Sistema de gestión empresarial",
+    title: "Governor Service Marine",
     description:
-      "Plataforma fullstack para gestión de procesos, reportes y dashboards. Arquitectura modular con API REST y frontend en React.",
-    tags: ["React", "Node.js", "PostgreSQL", "TypeScript"],
+      "Sitio web corporativo para servicios marinos. Experiencia multidioma (ES), estructura clara y diseño alineado con el sector.",
+    tags: ["React", "Next.js", "TypeScript"],
     imageUrl: null,
-    liveUrl: "#",
-    repoUrl: "#",
+    liveUrl: "https://www.governorservicemarine.com/es",
   },
   {
     id: "2",
-    title: "API de servicios integrados",
+    title: "Bankos App",
     description:
-      "API escalable con autenticación, rate limiting y documentación OpenAPI. Desplegado en contenedores con CI/CD.",
-    tags: [".NET", "Docker", "PostgreSQL", "Redis"],
+      "Aplicación web de servicios financieros. Enfoque en usabilidad y experiencia de usuario para gestión y operaciones.",
+    tags: ["React", "Node.js", "TypeScript"],
     imageUrl: null,
-    repoUrl: "#",
+    liveUrl: "https://bankosapp.com/",
   },
   {
     id: "3",
-    title: "Panel de administración",
+    title: "Playpoint",
     description:
-      "Interfaz de administración con tablas dinámicas, filtros y exportación. Enfoque en UX y rendimiento.",
-    tags: ["React", "Next.js", "TailwindCSS"],
+      "Plataforma de reservas deportivas en Panamá. Conecta jugadores y dueños de canchas con disponibilidad en tiempo real, pagos con Yappy y confirmaciones automáticas. MVP activo.",
+    tags: ["React", "TanStack Start", "TypeScript", "Cloudflare Workers"],
     imageUrl: null,
-    liveUrl: "#",
+    liveUrl: "https://playpoint-web.roderickromero4.workers.dev/",
+    inConstruction: true,
   },
 ];

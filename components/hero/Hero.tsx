@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { HeroBackground } from "./HeroBackground";
+import { MovingBorderButton } from "@/components/ui";
 
 const container = {
   hidden: { opacity: 0 },
@@ -28,9 +28,21 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[90vh] items-center justify-center px-4 pt-24 pb-16 sm:px-6 sm:pt-28">
       <HeroBackground />
+      {/* Subtle spotlight behind content */}
+      <div
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+        aria-hidden
+      >
+        <div
+          className="h-[50vh] w-[min(100%,500px)] rounded-full opacity-20"
+          style={{
+            background: "radial-gradient(ellipse at center, var(--color-accent) 0%, transparent 70%)",
+          }}
+        />
+      </div>
 
       <motion.div
-        className="mx-auto max-w-3xl text-center"
+        className="relative z-10 mx-auto max-w-3xl text-center"
         variants={container}
         initial="hidden"
         animate="visible"
@@ -43,12 +55,17 @@ export function Hero() {
         </motion.p>
         <motion.h1
           variants={item}
-          className="mb-6 text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl"
+          className="relative mb-6 text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl"
         >
           Arquitectura limpia,
           <br />
-          <span className="text-[var(--color-accent)]">rendimiento</span> y
-          escalabilidad
+          <span
+            className="bg-gradient-to-r from-[var(--color-accent)] via-[#60a5fa] to-[var(--color-accent-muted)] bg-clip-text text-transparent"
+            style={{ backgroundSize: "200% auto" }}
+          >
+            rendimiento
+          </span>{" "}
+          y escalabilidad
         </motion.h1>
         <motion.p
           variants={item}
@@ -60,20 +77,14 @@ export function Hero() {
         </motion.p>
         <motion.div
           variants={item}
-          className="flex flex-wrap items-center justify-center gap-4"
+          className="relative flex flex-wrap items-center justify-center gap-4"
         >
-          <Link
-            href="#proyectos"
-            className="rounded-lg bg-[var(--color-accent)] px-6 py-3 text-sm font-medium text-white transition-all hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 focus:ring-offset-[var(--color-bg)]"
-          >
+          <MovingBorderButton href="#proyectos" variant="primary">
             Ver proyectos
-          </Link>
-          <Link
-            href="#contacto"
-            className="rounded-lg border border-[var(--color-border)] bg-transparent px-6 py-3 text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-surface-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 focus:ring-offset-[var(--color-bg)]"
-          >
+          </MovingBorderButton>
+          <MovingBorderButton href="#contacto" variant="outline">
             Contactar
-          </Link>
+          </MovingBorderButton>
         </motion.div>
       </motion.div>
     </section>

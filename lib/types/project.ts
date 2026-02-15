@@ -6,4 +6,6 @@ export interface Project {
   imageUrl: string | null;
   liveUrl?: string;
   repoUrl?: string;
+  /** Si está en construcción o el dominio no es el definitivo */
+  inConstruction?: boolean;
 }
