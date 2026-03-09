@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HeroBackground } from "./HeroBackground";
-import { MovingBorderButton } from "@/components/ui";
 
 const container = {
   hidden: { opacity: 0 },
@@ -26,67 +24,68 @@ const item = {
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[90vh] items-center justify-center px-4 pt-24 pb-16 sm:px-6 sm:pt-28">
-      <HeroBackground />
-      {/* Subtle spotlight behind content */}
-      <div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center"
-        aria-hidden
-      >
-        <div
-          className="h-[50vh] w-[min(100%,500px)] rounded-full opacity-20"
-          style={{
-            background: "radial-gradient(ellipse at center, var(--color-accent) 0%, transparent 70%)",
-          }}
-        />
-      </div>
-
-      <motion.div
-        className="relative z-10 mx-auto max-w-3xl text-center"
-        variants={container}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.p
-          variants={item}
-          className="mb-4 text-sm font-medium uppercase tracking-widest text-[var(--color-accent)]"
-        >
-          Analista Programador & FullStack Developer
-        </motion.p>
-        <motion.h1
-          variants={item}
-          className="relative mb-6 text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl"
-        >
-          Arquitectura limpia,
-          <br />
-          <span
-            className="bg-gradient-to-r from-[var(--color-accent)] via-[#60a5fa] to-[var(--color-accent-muted)] bg-clip-text text-transparent"
-            style={{ backgroundSize: "200% auto" }}
+    <section className="min-h-[90vh] flex flex-col justify-center px-6 max-w-7xl mx-auto py-20">
+      <div className="relative">
+        <motion.div variants={container} initial="hidden" animate="visible">
+          <motion.div
+            variants={item}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-8"
           >
-            rendimiento
-          </span>{" "}
-          y escalabilidad
-        </motion.h1>
-        <motion.p
-          variants={item}
-          className="mb-10 text-lg text-[var(--color-text-muted)] sm:text-xl"
-        >
-          Diseño y construyo sistemas bien estructurados, mantenibles y alineados
-          con objetivos de negocio. No solo funcionalidades: soluciones pensadas
-          de principio a fin.
-        </motion.p>
-        <motion.div
-          variants={item}
-          className="relative flex flex-wrap items-center justify-center gap-4"
-        >
-          <MovingBorderButton href="#proyectos" variant="primary">
-            Ver proyectos
-          </MovingBorderButton>
-          <MovingBorderButton href="#contacto" variant="outline">
-            Contactar
-          </MovingBorderButton>
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+            </span>
+            Analista Programador &amp; FullStack Developer
+          </motion.div>
+
+          <motion.h1
+            variants={item}
+            className="text-5xl md:text-8xl font-black leading-[0.9] tracking-tight mb-8 max-w-5xl"
+          >
+            Arquitectura limpia,{" "}
+            <span className="bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent glow-text">
+              rendimiento
+            </span>{" "}
+            y escalabilidad
+          </motion.h1>
+
+          <motion.p
+            variants={item}
+            className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed mb-12"
+          >
+            Diseño y construyo sistemas bien estructurados, mantenibles y
+            alineados con objetivos de negocio. No solo funcionalidades:
+            soluciones pensadas de principio a fin.
+          </motion.p>
+
+          <motion.div variants={item} className="flex flex-wrap gap-5">
+            <a
+              href="#proyectos"
+              className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:scale-105 transition-transform shadow-xl shadow-primary/25"
+            >
+              Ver proyectos
+            </a>
+            <a
+              href="#contacto"
+              className="px-8 py-4 border border-slate-700 hover:border-primary/50 font-bold rounded-xl transition-all text-slate-100"
+            >
+              Contactar
+            </a>
+          </motion.div>
         </motion.div>
-      </motion.div>
+
+        {/* Decorative circle element */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden xl:block w-1/3 aspect-square border border-primary/10 rounded-full">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-3/4 h-3/4 border border-primary/20 rounded-full animate-spin-slow flex items-center justify-center">
+              <div className="w-1/2 h-1/2 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-2xl" />
+            </div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center opacity-20 text-[200px] select-none font-black text-primary">
+            JS
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

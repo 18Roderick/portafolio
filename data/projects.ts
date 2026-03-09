@@ -9,6 +9,8 @@ export const projects: Project[] = [
     tags: ["React", "Next.js", "TypeScript"],
     imageUrl: null,
     liveUrl: "https://www.governorservicemarine.com/es",
+    icon: "sailing",
+    gradientDirection: "bg-gradient-to-br",
   },
   {
     id: "2",
@@ -18,6 +20,8 @@ export const projects: Project[] = [
     tags: ["React", "Node.js", "TypeScript"],
     imageUrl: null,
     liveUrl: "https://bankosapp.com/",
+    icon: "account_balance",
+    gradientDirection: "bg-gradient-to-tr",
   },
   {
     id: "3",
@@ -28,5 +32,7 @@ export const projects: Project[] = [
     imageUrl: null,
     liveUrl: "https://playpoint-web.roderickromero4.workers.dev/",
     inConstruction: true,
+    icon: "sports_esports",
+    gradientDirection: "bg-gradient-to-b",
   },
 ];

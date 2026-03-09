@@ -15,23 +15,27 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md border-b border-primary/10 bg-background-dark/80">
+      <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link
           href="#"
-          className="text-lg font-semibold tracking-tight text-[var(--color-text)] transition-opacity hover:opacity-80"
+          className="flex items-center gap-3 group"
           onClick={() => setMobileOpen(false)}
         >
-          Portfolio
+          <div className="size-10 bg-primary rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform">
+            <span className="material-symbols-outlined text-white">code</span>
+          </div>
+          <span className="text-xl font-black tracking-tighter uppercase text-slate-100">
+            Portfolio
+          </span>
         </Link>
 
-        {/* Desktop nav */}
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden md:flex items-center gap-10">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+                className="text-sm font-medium text-slate-300 hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>
@@ -39,7 +43,13 @@ export function Header() {
           ))}
         </ul>
 
-        {/* Mobile menu button */}
+        <Link
+          href="#contacto"
+          className="hidden md:inline-flex bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20"
+        >
+          Contactar
+        </Link>
+
         <button
           type="button"
           className="flex flex-col gap-1.5 p-2 md:hidden"
@@ -66,20 +76,29 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden border-t border-[var(--color-border)] md:hidden"
+            className="overflow-hidden border-t border-primary/10 md:hidden"
           >
             <ul className="flex flex-col gap-1 px-4 py-4">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block rounded-lg px-3 py-2 text-[var(--color-text-muted)] transition-colors hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
+                    className="block rounded-lg px-3 py-2 text-slate-300 transition-colors hover:bg-primary/10 hover:text-primary"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="#contacto"
+                  className="block rounded-lg px-3 py-2 mt-2 bg-primary text-white text-center font-bold"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Contactar
+                </Link>
+              </li>
             </ul>
           </motion.div>
         )}

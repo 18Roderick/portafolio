@@ -8,31 +8,35 @@ export function Projects() {
   return (
     <section
       id="proyectos"
-      className="scroll-mt-24 border-t border-[var(--color-border)] bg-[var(--color-surface)]/50 px-4 py-20 sm:px-6 md:py-28"
+      className="scroll-mt-24 py-32 px-6 max-w-7xl mx-auto"
     >
-      <div className="mx-auto max-w-5xl">
-        <motion.h2
-          className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Proyectos
-        </motion.h2>
-        <motion.p
-          className="mb-12 text-[var(--color-text-muted)]"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-        >
-          Selección de trabajos recientes. Estructura lista para datos dinámicos.
-        </motion.p>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <motion.h2
+            className="text-4xl md:text-5xl font-black mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Proyectos Destacados
+          </motion.h2>
+          <motion.p
+            className="text-slate-400"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            Selección de trabajos recientes. Estructura lista para datos
+            dinámicos.
+          </motion.p>
         </div>
+        <div className="h-px flex-1 bg-primary/10 hidden md:block mx-12" />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
       </div>
     </section>
   );
