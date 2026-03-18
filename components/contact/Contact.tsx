@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ContactForm } from "./ContactForm";
 
 export function Contact() {
   return (
@@ -9,7 +10,7 @@ export function Contact() {
       className="scroll-mt-24 py-32 px-6 max-w-4xl mx-auto text-center"
     >
       <motion.div
-        className="relative p-12 md:p-20 bg-primary/10 border border-primary/20 rounded-[40px] overflow-hidden"
+        className="relative p-8 md:p-16 bg-primary/10 border border-primary/20 rounded-[40px] overflow-hidden"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -20,7 +21,7 @@ export function Contact() {
         </div>
 
         <motion.h2
-          className="text-4xl md:text-5xl font-black mb-6"
+          className="text-3xl md:text-5xl font-black mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -40,17 +41,13 @@ export function Contact() {
         </motion.p>
 
         <motion.div
+          className="max-w-md mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <a
-            href="mailto:hola@ejemplo.com"
-            className="inline-block bg-primary hover:bg-primary/90 text-white px-12 py-5 rounded-2xl text-lg font-bold transition-all shadow-xl shadow-primary/20 hover:scale-105"
-          >
-            Enviar mensaje
-          </a>
+          <ContactForm />
         </motion.div>
       </motion.div>
     </section>
