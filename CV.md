@@ -4,12 +4,16 @@
 
 Analista Programador y FullStack Developer con enfoque en arquitectura limpia, rendimiento y escalabilidad. Especializado en diseñar y construir sistemas bien estructurados, mantenibles y alineados con objetivos de negocio. Experiencia sólida tanto en el ecosistema JavaScript como en .NET, aplicando buenas prácticas, patrones de diseño y principios de ingeniería de software que priorizan claridad, eficiencia y evolución a largo plazo.
 
+**Ubicación:** Panamá
+
 ---
 
 ## Experiencia Profesional
 
-### Analista Programador — Atasoft *(Actualmente)*
+### Analista de Programación — ATAsoft S.A
 
+> Mayo 2021 – Actualidad · 4 años 11 meses · Jornada completa · Panamá
+>
 > [devaico.com/contacto](https://devaico.com/contacto/)
 
 - Creación de funciones nuevas y mantenimiento del software **NASH**.
@@ -18,8 +22,10 @@ Analista Programador y FullStack Developer con enfoque en arquitectura limpia, r
 
 ---
 
-### Analista Programador — Clau.io
+### Analista de Programación — CLAU.IO
 
+> Noviembre 2019 – Mayo 2021 · 1 año 7 meses · Jornada completa · Panamá
+>
 > [clau.io](https://clau.io/)
 
 - Creación de funciones nuevas y mantenimiento de **software de fidelidad**.

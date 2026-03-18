@@ -12,6 +12,10 @@ type ExperienceCardProps = {
 export function ExperienceCard({ experience, index }: ExperienceCardProps) {
   const isCurrent = experience.endDate === null;
 
+  const dateRange = isCurrent
+    ? `${experience.startDate} – Actualidad`
+    : `${experience.startDate} – ${experience.endDate}`;
+
   return (
     <motion.div
       className="relative flex gap-6 md:gap-10"
@@ -49,7 +53,8 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
       {/* Card content */}
       <div className="pb-12 flex-1">
         <div className="group rounded-2xl border border-primary/10 bg-background-dark/50 p-6 md:p-8 transition-all hover:border-primary/30 hover:shadow-[0_0_32px_rgba(131,60,246,0.1)]">
-          <div className="flex flex-wrap items-center gap-3 mb-3">
+          {/* Status badge */}
+          <div className="flex flex-wrap items-center gap-3 mb-4">
             <span
               className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-wider ${
                 isCurrent
@@ -60,39 +65,62 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
               {isCurrent && (
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400" />
               )}
-              {isCurrent ? "Actualmente" : experience.startDate}
+              {isCurrent ? "Actualmente" : "Finalizado"}
+            </span>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+              {experience.type}
             </span>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
-            <div>
-              <h3 className="text-xl font-bold text-slate-100">
-                {experience.role}
-              </h3>
-              {experience.url ? (
-                <Link
-                  href={experience.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-primary font-semibold hover:underline"
-                >
-                  {experience.company}
-                  <span className="material-symbols-outlined text-sm">
-                    arrow_outward
-                  </span>
-                </Link>
-              ) : (
-                <p className="text-primary font-semibold">
-                  {experience.company}
-                </p>
-              )}
-            </div>
+          {/* Role & Company */}
+          <h3 className="text-xl font-bold text-slate-100 mb-1">
+            {experience.role}
+          </h3>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-1">
+            {experience.url ? (
+              <Link
+                href={experience.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-primary font-semibold hover:underline"
+              >
+                {experience.company}
+                <span className="material-symbols-outlined text-sm">
+                  arrow_outward
+                </span>
+              </Link>
+            ) : (
+              <p className="text-primary font-semibold">
+                {experience.company}
+              </p>
+            )}
           </div>
 
+          {/* Date, duration & location */}
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-500 mb-5">
+            <span className="inline-flex items-center gap-1">
+              <span className="material-symbols-outlined text-sm">
+                calendar_today
+              </span>
+              {dateRange}
+            </span>
+            <span className="hidden sm:inline">·</span>
+            <span>{experience.duration}</span>
+            <span className="hidden sm:inline">·</span>
+            <span className="inline-flex items-center gap-1">
+              <span className="material-symbols-outlined text-sm">
+                location_on
+              </span>
+              {experience.location}
+            </span>
+          </div>
+
+          {/* Description */}
           <p className="text-slate-400 text-sm leading-relaxed mb-5">
             {experience.description}
           </p>
 
+          {/* Tags */}
           <ul className="flex flex-wrap gap-2">
             {experience.tags.map((tag) => (
               <li
