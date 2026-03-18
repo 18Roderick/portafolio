@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const block = {
@@ -10,9 +11,6 @@ const block = {
     transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
-
-const PORTRAIT_URL =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAgN_EpYkabbAcprPvFoHLWoya-0IkkT9FsgZdQioqUochA4Us_xSoLSPPpMXHO7-URkb9WK2LNANnkJYgzTr4YuFULkdNhPXjpaFty_tt9toRxKlehfdwBvVaq1pF2QQFSqhuDBMFRjN5H6vGKORHLWezDWNPr6uDd_zK-xOco7uhPgUNgA4_nUBFWet_oD272UireIirYjMuChx3M8Un8H90i5suraYHyiXEQRHfcjCGjXFGOURNEEby5h_7q0u6fIhp3mwnFCPCW";
 
 export function About() {
   return (
@@ -91,12 +89,14 @@ export function About() {
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <div className="relative z-10 aspect-square bg-slate-800 rounded-3xl overflow-hidden border border-white/5 group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay" />
-            <div
-              className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-              style={{ backgroundImage: `url('${PORTRAIT_URL}')` }}
-              role="img"
-              aria-label="Retrato profesional"
+            <div className="absolute inset-0 z-10 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay" />
+            <Image
+              src="/portrait.webp"
+              alt="Retrato profesional"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              priority
             />
           </div>
           <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-primary/20 rounded-3xl -z-10 transform rotate-3" />

@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Analista Programador & FullStack Developer",
+  title: "Portafolio | Analista Programador & FullStack Developer",
   description:
     "Arquitectura limpia, rendimiento y escalabilidad. Especialista en JavaScript, Node.js, React, .NET y PostgreSQL. Soluciones bien pensadas desde la arquitectura hasta la experiencia final.",
   keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Portfolio" }],
   openGraph: {
-    title: "Portfolio | Analista Programador & FullStack Developer",
+    title: "Portafolio | Analista Programador & FullStack Developer",
     description:
       "Arquitectura limpia, rendimiento y escalabilidad. Soluciones bien pensadas.",
   },
