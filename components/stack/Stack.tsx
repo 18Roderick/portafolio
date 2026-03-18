@@ -8,32 +8,36 @@ export function Stack() {
   return (
     <section
       id="stack"
-      className="scroll-mt-24 border-t border-[var(--color-border)] px-4 py-20 sm:px-6 md:py-28"
+      className="scroll-mt-24 py-32 bg-primary/5 px-6"
     >
-      <div className="mx-auto max-w-5xl">
-        <motion.h2
-          className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Stack / Tecnologías
-        </motion.h2>
-        <motion.p
-          className="mb-12 text-[var(--color-text-muted)]"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-        >
-          Herramientas y lenguajes con los que diseño y construyo soluciones.
-        </motion.p>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {STACK_ITEMS.map((item, index) => (
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-20">
+          <motion.h2
+            className="text-4xl md:text-5xl font-black mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Stack Tecnológico
+          </motion.h2>
+          <motion.p
+            className="text-slate-400 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            Herramientas y tecnologías que domino para dar vida a proyectos de
+            ingeniería de software de alto nivel.
+          </motion.p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {STACK_ITEMS.map((stackItem, index) => (
             <StackCard
-              key={item.name}
-              name={item.name}
-              category={item.category}
+              key={stackItem.name}
+              name={stackItem.name}
+              category={stackItem.category}
+              icon={stackItem.icon}
               index={index}
             />
           ))}
