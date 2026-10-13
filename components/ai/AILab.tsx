@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const SOLUTIONS = [
@@ -26,6 +26,33 @@ const EXAMPLES = [
   "¿Qué has construido?",
   "¿Cuál es tu experiencia en .NET?",
 ];
+
+function Typewriter({ text }: { text: string }) {
+  const [n, setN] = useState(() =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? text.length
+      : 0
+  );
+  const done = n >= text.length;
+
+  useEffect(() => {
+    if (done) return;
+    const id = setInterval(() => setN((c) => c + 2), 22);
+    return () => clearInterval(id);
+  }, [done]);
+
+  return (
+    <>
+      <p className="text-xs text-primary mb-2">
+        {done ? "respuesta · datos del portafolio" : "escribiendo…"}
+      </p>
+      <p className="text-slate-200 whitespace-pre-wrap">
+        {text.slice(0, n)}
+        {!done && <span className="cursor-blink" />}
+      </p>
+    </>
+  );
+}
 
 type State =
   | { status: "idle" }
@@ -83,10 +110,14 @@ export function AILab() {
 
       <div className="grid gap-10 lg:grid-cols-2">
         <ul className="space-y-4">
-          {SOLUTIONS.map((s) => (
-            <li
+          {SOLUTIONS.map((s, i) => (
+            <motion.li
               key={s.title}
-              className="flex gap-4 p-5 rounded-2xl border border-primary/10 bg-background-dark/50"
+              className="flex gap-4 p-5 rounded-xl border border-white/10 bg-[#11131a] hover:border-white/25 transition-colors"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
             >
               <span className="material-symbols-outlined text-primary">
                 {s.icon}
@@ -95,11 +126,11 @@ export function AILab() {
                 <h3 className="font-bold mb-1">{s.title}</h3>
                 <p className="text-sm text-slate-400">{s.text}</p>
               </div>
-            </li>
+            </motion.li>
           ))}
         </ul>
 
-        <div className="rounded-2xl border border-primary/20 bg-black/40 p-6 font-mono text-sm">
+        <div className="rounded-xl border border-white/10 bg-background-dark p-6 font-mono text-sm">
           <p className="text-primary mb-4">$ preguntar --sobre portafolio</p>
           <div className="flex flex-wrap gap-2 mb-4">
             {EXAMPLES.map((ex) => (
@@ -134,7 +165,7 @@ export function AILab() {
             <button
               type="submit"
               disabled={state.status === "loading" || question.trim().length < 5}
-              className="px-4 py-2 rounded-lg bg-primary font-bold text-white disabled:opacity-50"
+              className="px-4 py-2 rounded-lg bg-primary font-bold text-background-dark disabled:opacity-50"
             >
               Enviar
             </button>
@@ -142,12 +173,12 @@ export function AILab() {
 
           <div className="mt-5 min-h-16 leading-relaxed" aria-live="polite">
             {state.status === "loading" && (
-              <span className="text-slate-500">pensando…</span>
+              <span className="text-primary">
+                pensando<span className="cursor-blink" />
+              </span>
             )}
             {state.status === "done" && (
-              <p className="text-slate-200 whitespace-pre-wrap">
-                {state.answer}
-              </p>
+              <Typewriter key={state.answer} text={state.answer} />
             )}
             {state.status === "error" && (
               <p className="text-red-400">{state.message}</p>

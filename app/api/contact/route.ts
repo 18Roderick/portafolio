@@ -75,8 +75,8 @@ export async function POST(request: NextRequest) {
       subject: `Nuevo mensaje de ${name} — Portfolio`,
       html: `
         <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0812; color: #f1f5f9; padding: 40px; border-radius: 16px;">
-          <div style="border-bottom: 2px solid #833cf6; padding-bottom: 20px; margin-bottom: 24px;">
-            <h1 style="color: #833cf6; margin: 0; font-size: 24px;">Nuevo mensaje de contacto</h1>
+          <div style="border-bottom: 2px solid #4d6b00; padding-bottom: 20px; margin-bottom: 24px;">
+            <h1 style="color: #4d6b00; margin: 0; font-size: 24px;">Nuevo mensaje de contacto</h1>
           </div>
           <div style="margin-bottom: 24px;">
             <p style="color: #94a3b8; font-size: 14px; margin: 0 0 4px;">Nombre</p>
@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
           <div style="margin-bottom: 24px;">
             <p style="color: #94a3b8; font-size: 14px; margin: 0 0 4px;">Email</p>
             <p style="color: #f1f5f9; font-size: 16px; margin: 0;">
-              <a href="mailto:${escapeHtml(email)}" style="color: #833cf6; text-decoration: none;">${escapeHtml(email)}</a>
+              <a href="mailto:${escapeHtml(email)}" style="color: #4d6b00; text-decoration: none;">${escapeHtml(email)}</a>
             </p>
           </div>
           <div style="background: #111118; padding: 20px; border-radius: 12px; border: 1px solid #1e1e2e;">

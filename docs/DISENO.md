@@ -1,31 +1,42 @@
-# Propuesta de diseño: "El optimizador autodidacta"
+# Dirección de diseño
 
-## Idea central
-El portafolio no solo enumera tecnologías: **muestra cómo piensa su autor**. Cada sección responde a un rasgo del perfil.
+## Concepto
+Estética de panel técnico: sistemática, medida y precisa. El diseño comunica
+rigor con la forma (rejillas, numeración, tipografía mono, un solo acento) y no
+con textos sobre la personalidad del autor. El contenido es solo profesional.
 
-| Rasgo | Cómo se refleja en la web |
-|---|---|
-| Analítico y escéptico | Copy con evidencia y tono directo, sin adjetivos vacíos. Etiquetas mono tipo "hipótesis → resultado". |
-| Mentalidad de ingeniero | Sección **Cómo pienso**: el proceso detectar → descomponer → cuestionar → criterio propio, como un pipeline. |
-| Pragmático / coste-beneficio | Principios visibles ("suficientemente bueno", "medir antes de optimizar"). |
-| Independiente y autodidacta | Énfasis en entender los fundamentos, no solo usar herramientas. |
-| Optimizador | Estética de "panel técnico": tipografía mono, bordes finos, números de paso. |
-| IA integrada | Sección **Laboratorio IA** con soluciones y un asistente real (`/api/ask`) anclado al CV. |
+## Sistema visual
+- **Paleta:** fondo grafito `#0c0d11`, superficies `#11131a`, bordes finos
+  blancos al 10 %, un único acento lima `#c8f25a` (token `--color-primary`).
+  Sobre el acento se usa texto oscuro (`text-background-dark`).
+- **Tipografía:** Bricolage Grotesque (títulos), Instrument Sans (texto) e IBM
+  Plex Mono (etiquetas, numeración, terminal). Cargadas con `next/font`.
+- **Layout:** secciones en columna centrada (`max-w-7xl`), tarjetas con borde
+  fino y numeración `01 / 02 / 03`.
 
-## Dirección visual
-- Se conserva la base (fondo oscuro, violeta `#833cf6`) para no romper la identidad.
-- Se añade una capa "técnica": `font-mono` para etiquetas, numeración de pasos, un terminal en el hero que muestra el modelo mental.
-- Movimiento sobrio: entradas con `whileInView`, sin efectos que distraigan.
+## Movimiento
+- **Hero:** red animada "problema → sistema" (`HeroNetwork`, CSS puro), rejilla
+  técnica y un brillo que sigue al cursor (`HeroBackground`).
+- **Secciones:** entradas con `whileInView` (framer-motion) y escalonado entre
+  tarjetas.
+- **Asistente IA:** estados "pensando…" → "escribiendo…" y respuesta con efecto
+  de escritura.
+- **Accesibilidad:** `MotionProvider` aplica `reducedMotion="user"` a
+  framer-motion y las animaciones CSS se declaran bajo
+  `prefers-reduced-motion: no-preference`.
+
+## Secciones
+Hero · Sobre mí · Qué hago · Experiencia · Stack · Proyectos · Laboratorio IA ·
+Contacto.
 
 ## IA
-- `POST /api/ask`: recibe una pregunta, responde solo con base en `lib/ai/context.ts` (generado desde `data/`).
-- Honestidad ante todo: si no sabe, lo dice (coherente con el perfil: "prefiero un 'no se puede saber' a una seguridad artificial").
-- Rate limit (Upstash, ya existente) y la función se desactiva sola si falta `ANTHROPIC_API_KEY`.
+- `POST /api/ask`: recibe una pregunta y responde solo con base en
+  `lib/ai/context.ts` (generado desde `data/`). Si no sabe, lo dice.
+- Rate limit de 10 preguntas por hora por IP (Upstash). Se desactiva solo si
+  falta `ANTHROPIC_API_KEY`.
 
-## Lo que NO se publica
-El perfil incluye puntos ciegos, finanzas y salud/deporte. Se usan solo como inspiración de tono; en la web aparece únicamente lo profesional.
-
-## Pendiente / siguientes pasos
-- Casos de estudio por proyecto con formato problema → decisión → resultado medido.
+## Pendiente
+- Casos de estudio por proyecto con formato problema → solución → resultado.
 - Configurar `ANTHROPIC_API_KEY` en el hosting.
+- Enlaces reales de LinkedIn y GitHub en el footer.
 - Versión en inglés.

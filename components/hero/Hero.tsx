@@ -1,6 +1,8 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import { HeroBackground } from "./HeroBackground";
+import { HeroNetwork } from "./HeroNetwork";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -24,73 +26,70 @@ const item: Variants = {
 
 export function Hero() {
   return (
-    <section className="min-h-[90vh] flex flex-col justify-center px-6 max-w-7xl mx-auto py-20">
-      <div className="relative">
-        <motion.div variants={container} initial="hidden" animate="visible">
+    <section className="relative overflow-hidden">
+      <HeroBackground />
+      <div className="relative min-h-[90vh] max-w-7xl mx-auto px-6 py-20 flex flex-wrap items-center gap-14">
+        <motion.div
+          className="flex-[1_1_460px] min-w-0"
+          variants={container}
+          initial="hidden"
+          animate="visible"
+        >
           <motion.div
             variants={item}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-8"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-            </span>
+            <span className="dot-blink size-2 rounded-full bg-primary" />
             Analista Programador &amp; FullStack Developer
           </motion.div>
 
           <motion.h1
             variants={item}
-            className="text-5xl md:text-8xl font-black leading-[0.9] tracking-tight mb-8 max-w-5xl"
+            className="text-5xl md:text-7xl font-bold leading-[1.02] tracking-tight mb-8 max-w-3xl"
           >
-            Convierto problemas en{" "}
-            <span className="bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent glow-text">
-              sistemas
-            </span>{" "}
-            que se entienden y mejoran
+            Software que resuelve{" "}
+            <span className="text-primary">problemas reales</span>.
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed mb-12"
+            className="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed mb-12"
           >
-            Analista programador y solucionador de problemas. Primero entiendo
-            el porqué, luego diseño con arquitectura limpia, rendimiento y,
-            cuando aporta valor, IA integrada.
+            Analista programador y solucionador de problemas. Diseño con
+            arquitectura limpia, rendimiento y, cuando aporta valor, IA
+            integrada.
           </motion.p>
 
-          <motion.div variants={item} className="flex flex-wrap gap-5">
+          <motion.div variants={item} className="flex flex-wrap gap-4">
             <a
               href="#proyectos"
-              className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:scale-105 transition-transform shadow-xl shadow-primary/25"
+              className="px-8 py-4 bg-primary text-background-dark font-bold rounded-md hover:-translate-y-0.5 hover:brightness-110 transition"
             >
               Ver proyectos
             </a>
             <a
               href="#contacto"
-              className="px-8 py-4 border border-slate-700 hover:border-primary/50 font-bold rounded-xl transition-all text-slate-100"
+              className="px-8 py-4 border border-slate-700 hover:border-primary/50 font-bold rounded-md transition-colors text-slate-100"
             >
               Contactar
             </a>
             <a
               href="#ia"
-              className="px-8 py-4 font-mono font-bold text-primary hover:underline"
+              className="px-4 py-4 font-mono font-bold text-primary hover:underline"
             >
               &gt; probar el asistente IA
             </a>
           </motion.div>
         </motion.div>
 
-        {/* Decorative circle element */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden xl:block w-1/3 aspect-square border border-primary/10 rounded-full">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-3/4 h-3/4 border border-primary/20 rounded-full animate-spin-slow flex items-center justify-center">
-              <div className="w-1/2 h-1/2 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-2xl" />
-            </div>
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center opacity-20 text-[200px] select-none font-black text-primary">
-            JS
-          </div>
-        </div>
+        <motion.div
+          className="flex-[1_1_380px] min-w-0"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <HeroNetwork />
+        </motion.div>
       </div>
     </section>
   );
