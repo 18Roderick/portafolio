@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: var(--font-body), system-ui, sans-serif;
-  --font-heading: var(--font-heading), system-ui, sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, monospace;
+  --font-display: var(--font-instrument), system-ui, sans-serif;
+  --font-heading: var(--font-bricolage), system-ui, sans-serif;
+  --font-mono: var(--font-plex), ui-monospace, monospace;
 
   --color-primary: #c8f25a;
   --color-background-light: #f6f7f2;

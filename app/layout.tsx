@@ -11,20 +11,20 @@ import { MotionProvider } from "@/components/ui";
 
 const body = Instrument_Sans({
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-instrument",
   display: "swap",
 });
 
 const heading = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-heading",
+  variable: "--font-bricolage",
   display: "swap",
 });
 
 const mono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-mono",
+  variable: "--font-plex",
   display: "swap",
 });
 
