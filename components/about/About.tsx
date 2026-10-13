@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
-const block = {
+const block: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
