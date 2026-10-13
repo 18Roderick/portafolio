@@ -42,20 +42,20 @@ export function Hero() {
             variants={item}
             className="text-5xl md:text-8xl font-black leading-[0.9] tracking-tight mb-8 max-w-5xl"
           >
-            Arquitectura limpia,{" "}
+            Convierto problemas en{" "}
             <span className="bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent glow-text">
-              rendimiento
+              sistemas
             </span>{" "}
-            y escalabilidad
+            que se entienden y mejoran
           </motion.h1>
 
           <motion.p
             variants={item}
             className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed mb-12"
           >
-            Diseño y construyo sistemas bien estructurados, mantenibles y
-            alineados con objetivos de negocio. No solo funcionalidades:
-            soluciones pensadas de principio a fin.
+            Analista programador y solucionador de problemas. Primero entiendo
+            el porqué, luego diseño con arquitectura limpia, rendimiento y,
+            cuando aporta valor, IA integrada.
           </motion.p>
 
           <motion.div variants={item} className="flex flex-wrap gap-5">
@@ -70,6 +70,12 @@ export function Hero() {
               className="px-8 py-4 border border-slate-700 hover:border-primary/50 font-bold rounded-xl transition-all text-slate-100"
             >
               Contactar
+            </a>
+            <a
+              href="#ia"
+              className="px-8 py-4 font-mono font-bold text-primary hover:underline"
+            >
+              &gt; probar el asistente IA
             </a>
           </motion.div>
         </motion.div>

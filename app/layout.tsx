@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Portafolio | Analista Programador & FullStack Developer",
   description:
-    "Arquitectura limpia, rendimiento y escalabilidad. Especialista en JavaScript, Node.js, React, .NET y PostgreSQL. Soluciones bien pensadas desde la arquitectura hasta la experiencia final.",
+    "Convierto problemas en sistemas que se entienden y mejoran. Arquitectura limpia, rendimiento e IA aplicada. Especialista en JavaScript, Node.js, React, .NET y PostgreSQL. Soluciones bien pensadas desde la arquitectura hasta la experiencia final.",
   keywords: [
     "FullStack Developer",
     "Analista Programador",
