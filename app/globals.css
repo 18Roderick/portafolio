@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: var(--font-inter), "Inter", system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
+  --font-display: var(--font-instrument), system-ui, sans-serif;
+  --font-heading: var(--font-bricolage), system-ui, sans-serif;
+  --font-mono: var(--font-plex), ui-monospace, monospace;
 
-  --color-primary: #833cf6;
-  --color-background-light: #f7f5f8;
-  --color-background-dark: #0a0812;
+  --color-primary: #c8f25a;
+  --color-background-light: #f6f7f2;
+  --color-background-dark: #0c0d11;
 
   --animate-spin-slow: spin 20s linear infinite;
 }
@@ -19,6 +20,12 @@ body {
   font-feature-settings: "rlig" 1, "calt" 1;
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
 *:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
@@ -26,16 +33,7 @@ body {
 
 ::selection {
   background-color: var(--color-primary);
-  color: white;
-}
-
-.grid-pattern {
-  background-image: radial-gradient(
-    circle at 1px 1px,
-    rgba(131, 60, 246, 0.1) 1px,
-    transparent 0
-  );
-  background-size: 40px 40px;
+  color: var(--color-background-dark);
 }
 
 .noise-texture {
@@ -43,6 +41,144 @@ body {
   opacity: 0.05;
 }
 
-.glow-text {
-  text-shadow: 0 0 20px rgba(131, 60, 246, 0.5);
+/* Hero: cuadrícula técnica y brillo que sigue al cursor */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: linear-gradient(#000 55%, transparent);
+  mask-image: linear-gradient(#000 55%, transparent);
+}
+
+.hero-glow {
+  background: radial-gradient(
+    circle 460px at var(--mx, 72%) var(--my, 28%),
+    rgba(200, 242, 90, 0.14),
+    transparent 65%
+  );
+}
+
+/* Hero: red problema -> solución */
+.net-pulse {
+  opacity: 0;
+  stroke: var(--color-primary);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 24 400;
+}
+
+.net-node {
+  fill: #11131a;
+  stroke: #4a4c5a;
+  stroke-width: 1.5;
+}
+
+.net-out {
+  fill: var(--color-primary);
+  stroke: var(--color-primary);
+}
+
+.net-ring {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 1.5;
+  opacity: 0;
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -2px;
+  background: var(--color-primary);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes net-pulse-run {
+  0% {
+    stroke-dashoffset: 24;
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  55% {
+    stroke-dashoffset: -190;
+    opacity: 1;
+  }
+  62%,
+  100% {
+    stroke-dashoffset: -190;
+    opacity: 0;
+  }
+}
+
+@keyframes net-node-on {
+  0%,
+  100% {
+    fill: #11131a;
+    stroke: #4a4c5a;
+  }
+  8%,
+  30% {
+    fill: var(--color-primary);
+    stroke: var(--color-primary);
+  }
+}
+
+@keyframes net-ring {
+  0% {
+    r: 10;
+    opacity: 0.7;
+  }
+  40%,
+  100% {
+    r: 26;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .net-pulse {
+    animation: net-pulse-run 4s linear infinite;
+  }
+  .net-pulse.l2 {
+    animation-delay: 0.9s;
+  }
+  .net-pulse.l3 {
+    animation-delay: 1.8s;
+  }
+  .net-node.n0 {
+    animation: net-node-on 4s linear infinite;
+  }
+  .net-node.n1 {
+    animation: net-node-on 4s linear infinite 0.5s;
+  }
+  .net-node.n2 {
+    animation: net-node-on 4s linear infinite 1.4s;
+  }
+  .net-ring {
+    animation: net-ring 4s ease-out infinite 2.3s;
+  }
+  .cursor-blink,
+  .dot-blink {
+    animation: blink 1s steps(2, start) infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .net-node.n0,
+  .net-node.n1,
+  .net-node.n2 {
+    fill: var(--color-primary);
+    stroke: var(--color-primary);
+  }
 }

@@ -46,7 +46,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </span>
           </div>
           {project.inConstruction && (
-            <div className="absolute top-4 right-4 bg-primary text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-lg shadow-primary/40 z-20">
+            <div className="absolute top-4 right-4 bg-primary text-background-dark text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-lg shadow-primary/40 z-20">
               En construcción
             </div>
           )}

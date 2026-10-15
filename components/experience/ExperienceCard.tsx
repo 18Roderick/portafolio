@@ -52,7 +52,7 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
 
       {/* Card content */}
       <div className="pb-12 flex-1">
-        <div className="group rounded-2xl border border-primary/10 bg-background-dark/50 p-6 md:p-8 transition-all hover:border-primary/30 hover:shadow-[0_0_32px_rgba(131,60,246,0.1)]">
+        <div className="group rounded-2xl border border-primary/10 bg-background-dark/50 p-6 md:p-8 transition-all hover:border-primary/30 hover:shadow-[0_0_32px_rgba(200,242,90,0.1)]">
           {/* Status badge */}
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span

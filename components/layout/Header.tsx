@@ -6,9 +6,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { href: "#sobre-mi", label: "Sobre mí" },
+  { href: "#servicios", label: "Qué hago" },
   { href: "#experiencia", label: "Experiencia" },
   { href: "#stack", label: "Stack" },
   { href: "#proyectos", label: "Proyectos" },
+  { href: "#ia", label: "IA" },
   { href: "#contacto", label: "Contacto" },
 ] as const;
 
@@ -24,7 +26,7 @@ export function Header() {
           onClick={() => setMobileOpen(false)}
         >
           <div className="size-10 bg-primary rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform">
-            <span className="material-symbols-outlined text-white">code</span>
+            <span className="material-symbols-outlined text-background-dark">code</span>
           </div>
           <span className="text-xl font-black tracking-tighter uppercase text-slate-100">
             Portfolio
@@ -46,7 +48,7 @@ export function Header() {
 
         <Link
           href="#contacto"
-          className="hidden md:inline-flex bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20"
+          className="hidden md:inline-flex bg-primary hover:brightness-110 text-background-dark px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20"
         >
           Contactar
         </Link>
@@ -94,7 +96,7 @@ export function Header() {
               <li>
                 <Link
                   href="#contacto"
-                  className="block rounded-lg px-3 py-2 mt-2 bg-primary text-white text-center font-bold"
+                  className="block rounded-lg px-3 py-2 mt-2 bg-primary text-background-dark text-center font-bold"
                   onClick={() => setMobileOpen(false)}
                 >
                   Contactar
